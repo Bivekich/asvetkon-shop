@@ -16,7 +16,7 @@ const Faq = ({ faqs }) => {
         <div className='wrapper'>
             <div className='accordion'>
                 {faqs.map((item, i) => (
-                    <div className='faq-item'>
+                    <div className='faq-item' key={item._id}>
                         <div className='faq-title' onClick={() => toggle(i)}>
                             <h2>{item.question}</h2>
                             <span>
