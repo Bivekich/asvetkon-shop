@@ -5,9 +5,9 @@ import { BsTelegram, BsDiscord, BsWhatsapp } from 'react-icons/bs'
 import { SlSocialVkontakte } from 'react-icons/sl'
 
 import { client, urlFor } from '@/lib/client';
-import { Product } from '@/components';
+import { Product, Faq } from '@/components';
 
-const ProductDetails = ({ product, products }) => {
+const ProductDetails = ({ product, products, faqs }) => {
   const [open, setOpen] = useState(false)
   const closeModal = () => setOpen(false)
   const { image, name, details, price } = product;
@@ -95,6 +95,10 @@ const ProductDetails = ({ product, products }) => {
             </div>
           </div>
         </div>
+
+        <h3 className='faq-header'>Частые вопросы</h3>
+        <Faq faqs={faqs} />
+
       </div>
   )
 }
@@ -122,16 +126,18 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params: { slug }}) => {
-  const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
+  const query = `*[_type == "product" && slug.current == '${slug}'][0]`
   const productsQuery = '*[_type == "product"]'
+  const faqQuery = `*[_type == "faq"]`
 
-  const product = await client.fetch(query);
-  const products = await client.fetch(productsQuery);
+  const product = await client.fetch(query)
+  const products = await client.fetch(productsQuery)
+  const faqs = await client.fetch(faqQuery)
 
   console.log(product);
 
   return {
-    props: { products, product }
+    props: { products, product, faqs }
   }
 }
 
