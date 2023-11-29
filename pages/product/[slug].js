@@ -121,7 +121,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true
+    fallback: 'blocking'
   }
 }
 
@@ -133,8 +133,6 @@ export const getStaticProps = async ({ params: { slug }}) => {
   const product = await client.fetch(query)
   const products = await client.fetch(productsQuery)
   const faqs = await client.fetch(faqQuery)
-
-  console.log(product);
 
   return {
     props: { products, product, faqs }
