@@ -1,9 +1,9 @@
 import React from 'react';
 
 import { client } from '@/lib/client';
-import { Product, FooterBanner, HeroBanner } from '@/components';
+import {Product, FooterBanner, HeroBanner, PageLink} from '@/components';
 
-const Home = ({ products, bannerData }) => (
+const Home = ({ products, bannerData, pages }) => (
   <div>
     <HeroBanner heroBanner={bannerData.length && bannerData[0]}  />
     <div className="products-heading">
@@ -16,6 +16,12 @@ const Home = ({ products, bannerData }) => (
     </div>
 
     <FooterBanner footerBanner={bannerData && bannerData[0]} />
+
+      <div className='links-container'>
+          {pages?.map(pages => (
+              <PageLink pages={pages} key={pages._id} />
+          ))}
+      </div>
   </div>
 );
 
@@ -26,8 +32,11 @@ export const getServerSideProps = async () => {
   const bannerQuery = '*[_type == "banner"]';
   const bannerData = await client.fetch(bannerQuery);
 
+  const pagesQuery = '*[_type == "pages"]';
+  const pages = await client.fetch(pagesQuery);
+
   return {
-    props: { products, bannerData }
+    props: { products, bannerData, pages }
   }
 }
 

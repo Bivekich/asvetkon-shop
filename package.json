@@ -1,6 +1,6 @@
 {
   "name": "asvetkon-shop-finnaly",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^6.8.6",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.20.0",
