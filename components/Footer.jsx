@@ -18,9 +18,6 @@ const Footer = () => {
                 <Link href='https://vk.com/' target='_blank'>
                     <SlSocialVkontakte />
                 </Link>
-                <Link href='/' target='_blank'>
-                    <AiOutlineYoutube />
-                </Link>
             </p>
         </div>
     )

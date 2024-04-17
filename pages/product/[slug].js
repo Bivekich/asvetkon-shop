@@ -58,7 +58,7 @@ const ProductDetails = ({ product, products, faqs }) => {
                   <div className='modalContainer'>
                     <h1 className='header'>Напишите нам</h1>
                     <Link
-                        href='http://t.me/'
+                        href='https://t.me/asvetkon'
                         className='modalContent btn-telegram'
                         target='_blank'
                     >

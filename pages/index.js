@@ -3,7 +3,7 @@ import React from 'react';
 import { client } from '@/lib/client';
 import {Product, FooterBanner, HeroBanner, PageLink} from '@/components';
 
-const Home = ({ products, bannerData, pages }) => (
+const Home = ({ products, bannerData, pages, reviewsData }) => (
   <div>
     <HeroBanner heroBanner={bannerData.length && bannerData[0]}  />
     <div className="products-heading">
@@ -15,7 +15,7 @@ const Home = ({ products, bannerData, pages }) => (
       {products?.map((product) => <Product key={product._id} product={product} />)}
     </div>
 
-    <FooterBanner footerBanner={bannerData && bannerData[0]} />
+    <FooterBanner footerBanner={bannerData && bannerData[0]} reviewsData={reviewsData} />
 
       <div className='links-container'>
           {pages?.map(pages => (
@@ -32,11 +32,14 @@ export const getServerSideProps = async () => {
   const bannerQuery = '*[_type == "banner"]';
   const bannerData = await client.fetch(bannerQuery);
 
+  const reviewsQuery = '*[_type == "review"]'
+  const reviewsData = await client.fetch(reviewsQuery)
+
   const pagesQuery = '*[_type == "pages"]';
   const pages = await client.fetch(pagesQuery);
 
   return {
-    props: { products, bannerData, pages }
+    props: { products, bannerData, pages, reviewsData }
   }
 }
 
