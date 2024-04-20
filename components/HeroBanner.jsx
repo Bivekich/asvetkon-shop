@@ -40,20 +40,20 @@ const HeroBanner = ({ heroBanner }) => {
                 <div className='modalContainer'>
                   <h1 className='header'>Напишите нам</h1>
                   <Link
-                      href='http://t.me/'
+                      href='https://t.me/asvetkon'
                       className='modalContent btn-telegram'
                       target='_blank'
                   >
                     <BsTelegram /> Telegram
                   </Link>
                   <Link
-                      href='/'
+                      href='https://chatwith.io/s/66217a8d19a2b'
                       className='modalContent btn-whatsup'
                       target='_blank'
                   >
                     <BsWhatsapp /> WhatsUp
                   </Link>
-                  <Link href='/' className='modalContent btn-vk' target='_blank'>
+                  <Link href='https://vk.com/id814007913' className='modalContent btn-vk' target='_blank'>
                     <SlSocialVkontakte /> Вконтакте
                   </Link>
                 </div>

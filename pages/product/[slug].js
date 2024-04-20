@@ -65,14 +65,14 @@ const ProductDetails = ({ product, products, faqs }) => {
                       <BsTelegram /> Telegram
                     </Link>
                     <Link
-                        href='/'
+                        href='https://chatwith.io/s/66217a8d19a2b'
                         className='modalContent btn-whatsup'
                         target='_blank'
                     >
                       <BsWhatsapp /> WhatsUp
                     </Link>
                     <Link
-                        href='/'
+                        href='https://vk.com/id814007913'
                         className='modalContent btn-vk'
                         target='_blank'
                     >

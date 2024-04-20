@@ -15,7 +15,7 @@ const Footer = () => {
             </p>
             <p>АСВЕТКОН - Любые стекла для Вас</p>
             <p className='icons'>
-                <Link href='https://vk.com/' target='_blank'>
+                <Link href='https://vk.com/asvetkon' target='_blank'>
                     <SlSocialVkontakte />
                 </Link>
             </p>
